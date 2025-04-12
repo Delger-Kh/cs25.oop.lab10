@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 abstract class Animal {
 	protected String name;
 
@@ -28,10 +30,10 @@ public class Zoo<T extends Animal> {
 	public void addAnimal(T animal) {
 		animals.add(animal);
 	}
-
-	// Хэрэгжүүл: transferAnimals
+	
 	public void transferAnimals(List<? extends T> source, List<? super T> destination) {
-		// Бүх амьтдыг source-оос destination руу шилжүүл
+		destination.addAll(source); // Add all from source to destination
+		source.clear(); // Optional: clear source list after transfer
 	}
 
 	public List<T> getAnimals() {
